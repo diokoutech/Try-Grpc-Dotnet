@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+package  customer;
+
+service Customer {
+  rpc GetAllCustomers (Empty) returns (CustomerList) {}
+  rpc GetCustomer (CustomerRequest) returns (CustomerResponse) {}
+  rpc AddCustomer (CustomeAddRequest) returns (CustomerResponse) {}
+}
+
+message Empty {
+}
+
+message CustomerList {
+  repeated CustomerResponse Customers = 1;
+}
+
+message CustomerRequest {
+    // int32, bool, string, bytes, float, double, enum, or message
+  int32 CustomerId = 1;
+}
+message CustomeAddRequest {
+  string CustomerName = 2;
+  string CustomerEmail = 3;
+}
+
+message CustomerResponse {
+  int32 CustomerId = 1;
+  string CustomerName = 2;
+  string CustomerEmail = 3;
+}
