@@ -7,6 +7,9 @@ package  customer;
 service Customer {
   rpc GetAllCustomers (Empty) returns (CustomerList) {}
   rpc GetCustomer (CustomerRequest) returns (CustomerResponse) {}
+  rpc DeleteCustomer (CustomerRequest) returns (DeleteResponse) {}
+  rpc GetCustomerByEmail (CustomerRequestEmail) returns (CustomerResponse) {}
+  rpc GetCustomerByName (CustomerRequestName) returns (CustomerResponse) {}
   rpc AddCustomer (CustomeAddRequest) returns (CustomerResponse) {}
 }
 
@@ -16,11 +19,23 @@ message Empty {
 message CustomerList {
   repeated CustomerResponse Customers = 1;
 }
+message DeleteResponse{
+      string Message = 1;
+      bool IsSuccess = 2;
+
+}
 
 message CustomerRequest {
     // int32, bool, string, bytes, float, double, enum, or message
   int32 CustomerId = 1;
 }
+message CustomerRequestEmail {
+  string Email = 1;
+}
+message CustomerRequestName {
+  string Name = 1;
+}
+
 message CustomeAddRequest {
   string CustomerName = 2;
   string CustomerEmail = 3;

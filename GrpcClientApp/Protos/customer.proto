@@ -14,7 +14,7 @@ message Empty {
 }
 
 message CustomerList {
-  repeated CustomerResponse Customers = 1;
+ repeated CustomerResponse Customers = 1;
 }
 
 message CustomerRequest {
@@ -22,12 +22,12 @@ message CustomerRequest {
   int32 CustomerId = 1;
 }
 message CustomeAddRequest {
-  string CustomerName = 2;
-  string CustomerEmail = 3;
+ string CustomerName = 2;
+ string CustomerEmail = 3;
 }
 
 message CustomerResponse {
-  int32 CustomerId = 1;
-  string CustomerName = 2;
-  string CustomerEmail = 3;
+  optional int32 CustomerId = 1;
+  optional string CustomerName = 2;
+  optional string CustomerEmail = 3;
 }

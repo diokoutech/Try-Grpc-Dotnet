@@ -1,11 +1,13 @@
 using GrpcService;
+using GrpcService.Database;
 using GrpcService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddGrpc();
-
+// add context db
+builder.Services.AddDbContext<GrpcContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
